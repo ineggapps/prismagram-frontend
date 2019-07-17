@@ -9,7 +9,7 @@
 */
 
 export const defaults = {
-  isLoggedIn: localStorage.getItem("token") !== null ? true : false
+  isLoggedIn: Boolean(localStorage.getItem("token")) || false
 };
 
 export const resolvers = {
