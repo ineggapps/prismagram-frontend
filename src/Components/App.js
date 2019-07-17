@@ -1,4 +1,5 @@
 import React from "react";
+import { ApolloProvider } from "react-apollo-hooks";
 import { ThemeProvider } from "styled-components";
 import GlobalStyles from "../Styles/GlobalStyles";
 import Router from "./Router";
