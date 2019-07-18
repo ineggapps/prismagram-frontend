@@ -22,7 +22,7 @@ const Box = styled.div`
 const StateChanger = styled(Box)`
   text-align: center;
   padding: 20px 0px;
-  font-size: 12px;
+  font-size: 14px;
 `;
 
 const Link = styled.span`
