@@ -89,9 +89,11 @@ export default () => {
                 token
               }
             });
+          } else {
+            throw Error("Cna't confirm secreht, check again!");
           }
         } catch {
-          toast.error("Can't confirm secret...");
+          toast.error("Can't confirm secret... check again!");
         }
       }
     }
