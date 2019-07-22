@@ -107,7 +107,7 @@ export default ({
   newComment,
   currentItem,
   toggleLike,
-  onKeyUp,
+  onKeyPress,
   comments
 }) => (
   <Post>
@@ -144,7 +144,7 @@ export default ({
       )}
       <Timestamp>{createdAt}</Timestamp>
       <Textarea
-        onKeyUp={onKeyUp}
+        onKeyPress={onKeyPress}
         placeholder={"Add a comment..."}
         value={newComment.value}
         onChange={newComment.onChange}

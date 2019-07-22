@@ -49,9 +49,9 @@ const PostContainer = ({
     }
   };
 
-  const onKeyUp = e => {
-    const { keyCode } = e;
-    if (keyCode === 13) {
+  const onKeyPress = e => {
+    const { which } = e;
+    if (which === 13) {
       e.preventDefault();
       addCommentMutation();
       comment.setValue("");
@@ -73,7 +73,7 @@ const PostContainer = ({
       setLikeCount={setLikeCount}
       currentItem={currentItem}
       toggleLike={toggleLike}
-      onKeyUp={onKeyUp}
+      onKeyPress={onKeyPress}
       comments={comments}
     />
   );
