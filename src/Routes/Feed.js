@@ -67,6 +67,7 @@ export default () => {
             likeCount={post.likeCount}
             isLiked={post.isLiked}
             createdAt={post.createdAt}
+            comments={post.comments}
           />
         ))}
     </Wrapper>

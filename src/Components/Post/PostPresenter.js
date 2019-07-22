@@ -5,7 +5,7 @@ import FatText from "../FatText";
 import { throwStatement } from "@babel/types";
 import mapAgeCleaner from "map-age-cleaner";
 import Avatar from "../Avatar";
-import { HeartEmpty, HeartFull, Comment } from "./../Icons";
+import { HeartEmpty, HeartFull, Comment as CommentIcon } from "./../Icons";
 
 const Post = styled.div`
   ${props => props.theme.whiteBox};
@@ -86,6 +86,17 @@ const Textarea = styled(TextareaAutosize)`
   }
 `;
 
+const Comments = styled.ul`
+  margin-top: 10px;
+`;
+
+const Comment = styled.li`
+  margin-bottom: 7px;
+  span {
+    margin-right: 5px;
+  }
+`;
+
 export default ({
   user: { username, avatar },
   location,
@@ -94,7 +105,10 @@ export default ({
   likeCount,
   createdAt,
   newComment,
-  currentItem
+  currentItem,
+  toggleLike,
+  onKeyUp,
+  comments
 }) => (
   <Post>
     <Header>
@@ -112,14 +126,29 @@ export default ({
     </Files>
     <Meta>
       <Buttons>
-        <Button>{isLiked ? <HeartFull /> : <HeartEmpty />}</Button>
+        <Button onClick={toggleLike}>{isLiked ? <HeartFull /> : <HeartEmpty />}</Button>
         <Button>
-          <Comment />
+          <CommentIcon />
         </Button>
       </Buttons>
       <FatText text={likeCount === 1 ? "1 like" : `${likeCount} likes`} />
+      {comments && (
+        <Comments>
+          {comments.map(comment => (
+            <Comment key={comment.id}>
+              <FatText text={comment.user.username} />
+              {comment.text}
+            </Comment>
+          ))}
+        </Comments>
+      )}
       <Timestamp>{createdAt}</Timestamp>
-      <Textarea placeholder={"Add a comment..."} {...newComment} />
+      <Textarea
+        onKeyUp={onKeyUp}
+        placeholder={"Add a comment..."}
+        value={newComment.value}
+        onChange={newComment.onChange}
+      />
     </Meta>
   </Post>
 );
