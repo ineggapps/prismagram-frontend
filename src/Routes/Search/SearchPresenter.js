@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import FatText from "./../../Components/FatText";
 import Loader from "./../../Components/Loader";
-import UserCard from "./../../Components/SearchCard";
+import UserCard from "./../../Components/UserCard";
 
 const Wrapper = styled.div`
   height: 50vh;
