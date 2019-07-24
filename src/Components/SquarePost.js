@@ -60,7 +60,7 @@ const SqaurePost = ({ likeCount, commentCount, file }) => (
 SqaurePost.propTypes = {
   likeCount: PropTypes.number.isRequired,
   commentCount: PropTypes.number.isRequired,
-  file: PropTypes.string.isRequired
+  file: PropTypes.object.isRequired
 };
 
 export default SqaurePost;

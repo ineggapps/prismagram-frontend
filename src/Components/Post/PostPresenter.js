@@ -6,12 +6,16 @@ import { throwStatement } from "@babel/types";
 import mapAgeCleaner from "map-age-cleaner";
 import Avatar from "../Avatar";
 import { HeartEmpty, HeartFull, Comment as CommentIcon } from "./../Icons";
+import { Link } from "react-router-dom";
 
 const Post = styled.div`
   ${props => props.theme.whiteBox};
   width: 100%;
   max-width: 600px;
   margin-bottom: 25px;
+  a {
+    color: inherit;
+  }
 `;
 
 const Header = styled.header`
@@ -115,7 +119,9 @@ export default ({
     <Header>
       <Avatar size="sm" url={avatar} />
       <UserColumn>
-        <FatText text={username} />
+        <Link to={`/${username}`}>
+          <FatText text={username} />
+        </Link>
         <Location>{location}</Location>
       </UserColumn>
     </Header>
