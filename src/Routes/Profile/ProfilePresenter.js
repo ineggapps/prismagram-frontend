@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import Avatar from "../../Components/Avatar";
 import Loader from "../../Components/Loader";
 import FatText from "../../Components/FatText";
+import Button from "../../Components/Button";
 import FollowButton from "../../Components/FollowButton";
 import SquarePost from "../../Components/SquarePost";
 
@@ -59,7 +60,7 @@ const Posts = styled.div`
   grid-auto-rows: 200px;
 `;
 
-export default ({ data, loading }) => {
+export default ({ data, loading, logOut }) => {
   if (loading) {
     return (
       <Wrapper>
@@ -95,7 +96,11 @@ export default ({ data, loading }) => {
           <HeaderColumn>
             <UsernameRow>
               <Username>{username}</Username>
-              {!isSelf && <FollowButton id={id} isFollowing={isFollowing} />}
+              {isSelf ? (
+                <Button onClick={logOut} text="Log Out" />
+              ) : (
+                <FollowButton id={id} isFollowing={isFollowing} />
+              )}
             </UsernameRow>
             <Counts>
               <Count>
